@@ -2,3 +2,7 @@
 *.log
 .idea/
 .vscode/
+
+# Hero-compose source screenshots (regenerable; only hero.png is committed)
+examples/raw.png
+examples/after.png

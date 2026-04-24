@@ -5,10 +5,14 @@
 > Turn Markdown into beautifully typeset PDFs. Serif typography, terracotta accents, warm white page.
 
 <p align="center">
-  <img src="./examples/sample-preview.png" alt="Rendered sample — first page preview" width="640">
+  <a href="./examples/sample.pdf">
+    <img src="./examples/hero.png" alt="Before / after: the same Markdown rendered by plain pandoc vs. md-to-pdf" width="900">
+  </a>
+  <br>
+  <sub><i>Left: plain <code>pandoc --pdf-engine=typst</code>. Right: same source through md-to-pdf. Click for the full PDF.</i></sub>
 </p>
 
-A `pandoc → Typst` pipeline with pre-designed themes and bundled fonts — no system font installation needed. Full sample: [`examples/sample.pdf`](./examples/sample.pdf).
+A `pandoc → Typst` pipeline with pre-designed themes and bundled fonts — no system font installation needed.
 
 ## Features
 

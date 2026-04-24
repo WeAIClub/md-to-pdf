@@ -5,10 +5,14 @@
 > 把 Markdown 转成排版精美的 PDF。衬线字体、赤陶色点缀、暖白页面。
 
 <p align="center">
-  <img src="./examples/sample-preview.png" alt="样例首页预览" width="640">
+  <a href="./examples/sample.pdf">
+    <img src="./examples/hero.png" alt="Before / after：同一份 Markdown 经 pandoc 裸渲染 vs. 经 md-to-pdf 的对比" width="900">
+  </a>
+  <br>
+  <sub><i>左：裸 <code>pandoc --pdf-engine=typst</code>。右：同一份源文件走 md-to-pdf。点击可查看完整 PDF。</i></sub>
 </p>
 
-一条 `pandoc → Typst` 管道，配两套预设主题和打包好的字体 —— 不需要往系统里装字体。完整样例见 [`examples/sample.pdf`](./examples/sample.pdf)。
+一条 `pandoc → Typst` 管道，配两套预设主题和打包好的字体 —— 不需要往系统里装字体。
 
 ## 特性
 
