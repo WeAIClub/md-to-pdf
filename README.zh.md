@@ -1,10 +1,10 @@
 # md-to-pdf
 
+[English](./README.md) · **中文**
+
 > 把 Markdown 转成排版精美的 PDF。衬线字体、赤陶色点缀、暖白页面。
 
-[English](./README.md) · 一条 `pandoc → Typst` 管道，配两套预设主题和打包好的字体 —— 不需要往系统里装字体。
-
-![sample](./examples/sample.pdf)
+一条 `pandoc → Typst` 管道，配两套预设主题和打包好的字体 —— 不需要往系统里装字体。
 
 点 [`examples/sample.pdf`](./examples/sample.pdf) 看成品效果。
 

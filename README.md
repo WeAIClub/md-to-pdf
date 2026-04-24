@@ -1,10 +1,10 @@
 # md-to-pdf
 
+**English** · [中文](./README.zh.md)
+
 > Turn Markdown into beautifully typeset PDFs. Serif typography, terracotta accents, warm white page.
 
-[中文版](./README.zh.md) · A `pandoc → Typst` pipeline with pre-designed themes and bundled fonts — no system font installation needed.
-
-![sample](./examples/sample.pdf)
+A `pandoc → Typst` pipeline with pre-designed themes and bundled fonts — no system font installation needed.
 
 See [`examples/sample.pdf`](./examples/sample.pdf) for a rendered preview.
 
