@@ -4,9 +4,11 @@
 
 > Turn Markdown into beautifully typeset PDFs. Serif typography, terracotta accents, warm white page.
 
-A `pandoc → Typst` pipeline with pre-designed themes and bundled fonts — no system font installation needed.
+<p align="center">
+  <img src="./examples/sample-preview.png" alt="Rendered sample — first page preview" width="640">
+</p>
 
-See [`examples/sample.pdf`](./examples/sample.pdf) for a rendered preview.
+A `pandoc → Typst` pipeline with pre-designed themes and bundled fonts — no system font installation needed. Full sample: [`examples/sample.pdf`](./examples/sample.pdf).
 
 ## Features
 
