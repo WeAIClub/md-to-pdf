@@ -1,8 +1,25 @@
-# md-to-pdf
+<h1 align="center">md-to-pdf</h1>
 
-**English** · [中文](./README.zh.md)
+<p align="center"><em>markdown goes in, typography comes out</em></p>
 
-> Turn Markdown into beautifully typeset PDFs. Serif typography, terracotta accents, warm white page.
+<p align="center">
+  <a href="https://github.com/WeAIClub/md-to-pdf/stargazers"><img src="https://img.shields.io/github/stars/WeAIClub/md-to-pdf?style=flat-square&color=c96442&labelColor=3d3d3a" alt="stars"></a>
+  <a href="https://github.com/WeAIClub/md-to-pdf/commits/main"><img src="https://img.shields.io/github/last-commit/WeAIClub/md-to-pdf?style=flat-square&color=c96442&labelColor=3d3d3a" alt="last commit"></a>
+  <a href="./LICENSE"><img src="https://img.shields.io/github/license/WeAIClub/md-to-pdf?style=flat-square&color=c96442&labelColor=3d3d3a" alt="license"></a>
+</p>
+
+<p align="center">
+  <a href="#install">Install</a> ·
+  <a href="#quick-start">Quick start</a> ·
+  <a href="#themes">Themes</a> ·
+  <a href="#use-as-a-claude-code-skill">As a skill</a> ·
+  <a href="#use-with-other-ai-clis">AI CLIs</a> ·
+  <a href="#credits">Credits</a>
+  &nbsp;|&nbsp;
+  <strong>English</strong> · <a href="./README.zh.md">中文</a>
+</p>
+
+---
 
 <p align="center">
   <a href="./examples/sample.pdf">
@@ -12,7 +29,7 @@
   <sub><i>Left: plain <code>pandoc --pdf-engine=typst</code>. Right: same source through md-to-pdf. Click for the full PDF.</i></sub>
 </p>
 
-A `pandoc → Typst` pipeline with pre-designed themes and bundled fonts — no system font installation needed.
+A `pandoc → Typst` pipeline with pre-designed themes and bundled fonts — serif typography, terracotta accents, warm white page, no system font installation needed.
 
 ## Features
 
@@ -21,7 +38,7 @@ A `pandoc → Typst` pipeline with pre-designed themes and bundled fonts — no 
 - 🤖 **Works as a Claude Code skill** out of the box (see below), and as a plain CLI for any other AI agent (Gemini CLI, Codex CLI, Qoder, Cursor…) or human user
 - 🧩 **Easy to theme**: one `theme.typ` file per theme; drop in your own and pass it as the third argument
 
-## Install prerequisites
+## Install
 
 You need **pandoc ≥ 3.2** (the Typst writer was added in 3.2) and **typst** on your `PATH`.
 
@@ -86,9 +103,9 @@ git clone https://github.com/WeAIClub/md-to-pdf ~/.claude/skills/md-to-pdf
 
 After that, tell Claude something like *"turn handoff.md into a pdf"* and it will invoke the skill.
 
-## Use with other AI CLIs (Gemini CLI / Codex CLI / Qoder / Cursor…)
+## Use with other AI CLIs
 
-See [`AGENTS.md`](./AGENTS.md) — a short, agent-facing spec of when and how to invoke this project. Any AI coding agent that reads the repo can follow it.
+Works with any agent that can read a repo and run a shell command — Gemini CLI, Codex CLI, Qoder, Cursor, and others. See [`AGENTS.md`](./AGENTS.md) for the short, agent-facing spec describing when and how to invoke the skill.
 
 ## Add your own theme
 

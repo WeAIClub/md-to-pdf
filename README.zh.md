@@ -1,8 +1,25 @@
-# md-to-pdf
+<h1 align="center">md-to-pdf</h1>
 
-[English](./README.md) · **中文**
+<p align="center"><em>markdown goes in, typography comes out</em></p>
 
-> 把 Markdown 转成排版精美的 PDF。衬线字体、赤陶色点缀、暖白页面。
+<p align="center">
+  <a href="https://github.com/WeAIClub/md-to-pdf/stargazers"><img src="https://img.shields.io/github/stars/WeAIClub/md-to-pdf?style=flat-square&color=c96442&labelColor=3d3d3a" alt="stars"></a>
+  <a href="https://github.com/WeAIClub/md-to-pdf/commits/main"><img src="https://img.shields.io/github/last-commit/WeAIClub/md-to-pdf?style=flat-square&color=c96442&labelColor=3d3d3a" alt="last commit"></a>
+  <a href="./LICENSE"><img src="https://img.shields.io/github/license/WeAIClub/md-to-pdf?style=flat-square&color=c96442&labelColor=3d3d3a" alt="license"></a>
+</p>
+
+<p align="center">
+  <a href="#安装依赖">安装</a> ·
+  <a href="#快速开始">快速开始</a> ·
+  <a href="#主题">主题</a> ·
+  <a href="#作为-claude-code-skill-使用">作为 skill</a> ·
+  <a href="#配合其他-ai-cli-使用">其他 AI CLI</a> ·
+  <a href="#致谢">致谢</a>
+  &nbsp;|&nbsp;
+  <a href="./README.md">English</a> · <strong>中文</strong>
+</p>
+
+---
 
 <p align="center">
   <a href="./examples/sample.pdf">
@@ -12,7 +29,7 @@
   <sub><i>左：裸 <code>pandoc --pdf-engine=typst</code>。右：同一份源文件走 md-to-pdf。点击可查看完整 PDF。</i></sub>
 </p>
 
-一条 `pandoc → Typst` 管道，配两套预设主题和打包好的字体 —— 不需要往系统里装字体。
+一条 `pandoc → Typst` 管道，配两套预设主题和打包好的字体 —— 衬线字体、赤陶色点缀、暖白页面，不需要往系统里装字体。
 
 ## 特性
 
@@ -86,9 +103,9 @@ git clone https://github.com/WeAIClub/md-to-pdf ~/.claude/skills/md-to-pdf
 
 然后对 Claude 说「把 handoff.md 转成 PDF」，它会自动调用这个 skill。
 
-## 配合其他 AI CLI 使用（Gemini CLI / Codex CLI / Qoder / Cursor…）
+## 配合其他 AI CLI 使用
 
-看 [`AGENTS.md`](./AGENTS.md) —— 一份短的、面向 AI 代理的使用说明。任何能读仓库的 AI 代理都能照着用。
+支持任何能读仓库 + 执行 shell 命令的 AI 代理 —— Gemini CLI、Codex CLI、Qoder、Cursor 都能用。看 [`AGENTS.md`](./AGENTS.md)，那是一份短的、面向 AI 代理的使用说明。
 
 ## 加你自己的主题
 
