@@ -28,8 +28,6 @@
   <sub><i>A Markdown file rendered through md-to-pdf with the <code>claude-white</code> theme. Click for the full PDF.</i></sub>
 </p>
 
-A `pandoc → Typst` pipeline with pre-designed themes and bundled fonts — serif typography, terracotta accents, warm white page, no system font installation needed.
-
 ## Installation
 
 You need **pandoc ≥ 3.2** (the Typst writer was added in 3.2) and **typst** on your `PATH`.

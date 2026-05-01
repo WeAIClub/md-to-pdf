@@ -28,8 +28,6 @@
   <sub><i>同一份 Markdown 走 md-to-pdf 用 <code>claude-white</code> 主题渲染的效果。点击查看完整 PDF。</i></sub>
 </p>
 
-一条 `pandoc → Typst` 管道，配两套预设主题和打包好的字体 —— 衬线字体、赤陶色点缀、暖白页面，不需要往系统里装字体。
-
 ## 安装
 
 你需要把 **pandoc ≥ 3.2**（Typst writer 是 pandoc 3.2 才加的）和 **typst** 放到 `PATH` 里。
