@@ -1,9 +1,9 @@
-# terracotta-white-bold
+# claude-white-bold
 
-Variant of `terracotta-white` with stronger bold emphasis. **The only difference is how `**bold**` is rendered**:
+Variant of `claude-white` with stronger bold emphasis. **The only difference is how `**bold**` is rendered**:
 
-- `terracotta-white`: `weight: "bold"` — with the bundled serif (no native 700), the renderer falls back to synthesized bold, which reads fairly soft.
-- `terracotta-white-bold`: `weight: "regular"` + `stroke: 0.2pt + near-black` — a stroke-based synthetic bold (similar to how browsers render synthetic bold), giving a noticeably stronger contrast.
+- `claude-white`: `weight: "bold"` — with the bundled serif (no native 700), the renderer falls back to synthesized bold, which reads fairly soft.
+- `claude-white-bold`: `weight: "regular"` + `stroke: 0.2pt + near-black` — a stroke-based synthetic bold (similar to how browsers render synthetic bold), giving a noticeably stronger contrast.
 
 Everything else — fonts, colors, headings, tables, code blocks, quotes — is identical.
 

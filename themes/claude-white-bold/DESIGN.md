@@ -1,8 +1,8 @@
 <!--
 Source: Anthropic Claude DESIGN.md, retrieved via the HU-UH/awesome-design-md
 mirror (https://github.com/HU-UH/awesome-design-md). Retained here as a design
-reference for the terracotta-white theme. This file is unmodified; only selected
-design tokens are implemented in theme.typ.
+reference for the claude-white-bold theme. This file is unmodified; only
+selected design tokens are implemented in theme.typ.
 -->
 
 # Design System: Claude (Anthropic)

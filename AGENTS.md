@@ -4,7 +4,7 @@ Guide for AI coding agents (Gemini CLI, Codex CLI, Qoder IDE, Cursor, etc.) to u
 
 ## What this project does
 
-Converts a Markdown file into a beautifully typeset PDF via a `pandoc → Typst` pipeline. Ships with two built-in themes (`terracotta-white` and `terracotta-white-bold`) and bundled fonts.
+Converts a Markdown file into a beautifully typeset PDF via a `pandoc → Typst` pipeline. Ships with two built-in themes (`claude-white` and `claude-white-bold`) and bundled fonts.
 
 ## When to use it
 
@@ -24,13 +24,13 @@ The main entry point is a single shell script:
 
 - `input.md` — path to the Markdown file (absolute or relative)
 - `output.pdf` — destination PDF path
-- `theme` (optional) — defaults to `terracotta-white`. Also available: `terracotta-white-bold` (stronger bold)
+- `theme` (optional) — defaults to `claude-white`. Also available: `claude-white-bold` (stronger bold)
 
 Example:
 
 ```bash
 ./scripts/md_to_pdf.sh ./my-doc.md ./my-doc.pdf
-./scripts/md_to_pdf.sh ./my-doc.md ./my-doc.pdf terracotta-white-bold
+./scripts/md_to_pdf.sh ./my-doc.md ./my-doc.pdf claude-white-bold
 ```
 
 On success, prints `[OK] /absolute/path.pdf`.
@@ -56,5 +56,5 @@ Fonts are **bundled in `fonts/`**; no system-font installation is needed — the
 ## Adding a new theme
 
 1. Create `themes/<your-theme>/theme.typ`
-2. Define all required `#set` and `#show` rules (see `themes/terracotta-white/theme.typ` as reference)
+2. Define all required `#set` and `#show` rules (see `themes/claude-white/theme.typ` as reference)
 3. Invoke with `./scripts/md_to_pdf.sh input.md output.pdf <your-theme>`

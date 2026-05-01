@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # md-to-pdf: Markdown -> beautifully typeset PDF (pandoc → typst pipeline)
-# Usage: md_to_pdf.sh <input.md> <output.pdf> [theme=terracotta-white]
+# Usage: md_to_pdf.sh <input.md> <output.pdf> [theme=claude-white]
 
 set -euo pipefail
 
@@ -11,8 +11,8 @@ Usage: $0 <input.md> <output.pdf> [theme]
 Arguments:
   input.md    Markdown input file
   output.pdf  PDF output path
-  theme       Theme name; defaults to 'terracotta-white'.
-              Available: 'terracotta-white' (recommended), 'terracotta-white-bold'.
+  theme       Theme name; defaults to 'claude-white'.
+              Available: 'claude-white' (recommended), 'claude-white-bold'.
 
 Dependencies:
   - pandoc (on PATH)   https://pandoc.org/installing.html
@@ -28,7 +28,7 @@ EOF
 
 INPUT="$1"
 OUTPUT="$2"
-THEME="${3:-terracotta-white}"
+THEME="${3:-claude-white}"
 
 [ -f "$INPUT" ] || { echo "Input file not found: $INPUT" >&2; exit 1; }
 

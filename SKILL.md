@@ -2,7 +2,7 @@
 name: md-to-pdf
 description: |
   Convert a Markdown file into a beautifully typeset PDF via a pandoc → Typst pipeline.
-  Ships with terracotta-white themes (warm white page, terracotta accents, serif typography).
+  Ships with claude-white themes (warm white page, terracotta accents, serif typography).
   Trigger when the user says "turn this md into a pdf", "export X.md as pdf", "make X.md printable", or any request to produce a nicely formatted PDF from a Markdown file.
   Requires pandoc and typst installed. Fonts are bundled inside the skill directory — no system font installation needed.
 ---
@@ -20,7 +20,7 @@ Convert Markdown into beautifully typeset PDFs. Use this skill whenever the user
 Arguments:
 - `input.md`: path to the Markdown file (absolute or relative)
 - `output.pdf`: destination PDF path
-- `theme`: theme name, defaults to `terracotta-white`. Available: `terracotta-white` (recommended), `terracotta-white-bold`
+- `theme`: theme name, defaults to `claude-white`. Available: `claude-white` (recommended), `claude-white-bold`
 
 On success, the script prints `[OK] /absolute/path.pdf`.
 
@@ -32,11 +32,11 @@ md-to-pdf/
 ├── scripts/
 │   └── md_to_pdf.sh                   # main pipeline: pandoc → sed → typst compile
 ├── themes/
-│   ├── terracotta-white/              # default theme (recommended)
+│   ├── claude-white/              # default theme (recommended)
 │   │   ├── DESIGN.md                  # design reference
 │   │   ├── README.md                  # theme notes (typography, color tokens)
 │   │   └── theme.typ                  # Typst template (show / set / color tokens)
-│   └── terracotta-white-bold/         # variant with stronger synthetic bold
+│   └── claude-white-bold/         # variant with stronger synthetic bold
 │       ├── DESIGN.md
 │       ├── README.md
 │       └── theme.typ

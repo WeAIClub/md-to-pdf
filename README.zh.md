@@ -9,12 +9,11 @@
 </p>
 
 <p align="center">
-  <a href="#安装依赖">安装</a> ·
-  <a href="#快速开始">快速开始</a> ·
+  <a href="#安装">安装</a> ·
+  <a href="#用法">用法</a> ·
   <a href="#主题">主题</a> ·
-  <a href="#作为-claude-code-skill-使用">作为 skill</a> ·
-  <a href="#配合其他-ai-cli-使用">其他 AI CLI</a> ·
-  <a href="#致谢">致谢</a>
+  <a href="#自定义主题">自定义主题</a> ·
+  <a href="#架构">架构</a>
   &nbsp;|&nbsp;
   <a href="./README.md">English</a> · <strong>中文</strong>
 </p>
@@ -23,114 +22,122 @@
 
 <p align="center">
   <a href="./examples/sample.pdf">
-    <img src="./examples/hero.png" alt="Before / after：同一份 Markdown 经 pandoc 裸渲染 vs. 经 md-to-pdf 的对比" width="900">
+    <img src="./examples/after.png" alt="md-to-pdf 用 claude-white 主题渲染 Markdown 的效果" width="900">
   </a>
   <br>
-  <sub><i>左：裸 <code>pandoc --pdf-engine=typst</code>。右：同一份源文件走 md-to-pdf。点击可查看完整 PDF。</i></sub>
+  <sub><i>同一份 Markdown 走 md-to-pdf 用 <code>claude-white</code> 主题渲染的效果。点击查看完整 PDF。</i></sub>
 </p>
 
 一条 `pandoc → Typst` 管道，配两套预设主题和打包好的字体 —— 衬线字体、赤陶色点缀、暖白页面，不需要往系统里装字体。
 
-## 特性
-
-- ✨ **两套预设主题**：`terracotta-white`（推荐）和 `terracotta-white-bold` —— 暖白底、赤陶点缀、衬线字体
-- 📦 **字体随仓库打包**：通过 `typst --font-path` 加载，不需要你安装到系统字体目录
-- 🤖 **开箱即用的 Claude Code skill**（见下），同时作为纯 CLI 工具可被其他 AI 代理（Gemini CLI、Codex CLI、Qoder、Cursor 等）或直接被人调用
-- 🧩 **易于扩展主题**：每个主题就一个 `theme.typ` 文件，写一个扔进去、作为第三个参数传就行
-
-## 安装依赖
+## 安装
 
 你需要把 **pandoc ≥ 3.2**（Typst writer 是 pandoc 3.2 才加的）和 **typst** 放到 `PATH` 里。
 
-**macOS（Homebrew）：**
 ```bash
+# macOS
 brew install pandoc typst
-```
 
-**Linux（Debian/Ubuntu）：**
-```bash
-sudo apt install pandoc
-# typst 从官方预编译二进制装：
+# Linux（Arch）
+sudo pacman -S pandoc typst
+
+# Linux（Debian/Ubuntu）：pandoc 走 apt，typst 从官方预编译二进制装：
 # https://github.com/typst/typst/releases
 ```
 
-**Linux（Arch）：**
-```bash
-sudo pacman -S pandoc typst
-```
+### Claude Code
 
-> **Windows** 暂不官方支持（脚本是 bash）。Git Bash 或 WSL 理论上能跑，但未测试。
-
-## 快速开始
+直接 clone 到 Claude Code 的 skills 目录：
 
 ```bash
-git clone https://github.com/WeAIClub/md-to-pdf
-cd md-to-pdf
-./scripts/md_to_pdf.sh examples/sample.md out.pdf
-open out.pdf      # macOS；Linux 用 xdg-open
+mkdir -p ~/.claude/skills
+git clone https://github.com/WeAIClub/md-to-pdf ~/.claude/skills/md-to-pdf
 ```
+
+### OpenCode
+
+```bash
+mkdir -p ~/.config/opencode/skills
+git clone https://github.com/WeAIClub/md-to-pdf ~/.config/opencode/skills/md-to-pdf
+```
+
+> **小提示：** OpenCode 也会扫 `~/.claude/skills/`，所以只 clone 到 `~/.claude/skills/md-to-pdf` 一处也能两边都生效。
+
+### 其他 AI Agent
+
+任何能读仓库 + 跑 shell 命令的 Agent 都行 —— Gemini CLI、Codex CLI、Qoder、Cursor 等。把仓库 clone 到你放工具的地方，让 Agent 读 [`AGENTS.md`](./AGENTS.md)，那是一份给 Agent 看的简短说明。
 
 ## 用法
 
-```bash
-./scripts/md_to_pdf.sh <input.md> <output.pdf> [theme]
+### Slash 命令
+
+```
+/md-to-pdf input.md output.pdf [theme]
 ```
 
-| 参数 | 说明 |
-|---|---|
-| `input.md` | Markdown 源文件路径（绝对或相对） |
-| `output.pdf` | 输出 PDF 路径 |
-| `theme` | 主题名，可选。默认 `terracotta-white`。 |
+`theme` 可选，默认 `claude-white`。成功时打印 `[OK] /绝对/路径.pdf`。
 
-成功时打印 `[OK] /绝对/路径.pdf`。
+### 自然语言
+
+直接对 Agent 说人话就行 —— skill 会通过 trigger 描述自动被识别：
+
+- "把 `report.md` 转成 PDF"
+- "把这份笔记打印成 PDF，用 `claude-white-bold` 主题"
+- "turn `report.md` into a pdf"
+- "make `notes.md` printable with the `claude-white-bold` theme"
 
 ## 主题
 
 | 主题 | 说明 |
 |---|---|
-| `terracotta-white` | **推荐**。默认 bold 字重。对没有原生 700 字重的字体，系统合成粗体较柔和。 |
-| `terracotta-white-bold` | 同款设计，但 `**bold**` 改用描边合成粗体，对比更强。 |
+| [`claude-white`](./themes/claude-white/) | **推荐**。暖白底、赤陶点缀、衬线字体。合成粗体偏柔，适合大段正文。 |
+| [`claude-white-bold`](./themes/claude-white-bold/) | 同款设计语言，`**bold**` 改用描边合成粗体，对比更强。 |
 
-每个主题目录下的 `README.md` 有完整字号表。
+> 🚧 **持续更新中** —— vercel、notion、linear、mintlify 等主题已在路上。Watch 仓库追新，或开 issue 提需求。
 
-## 作为 Claude Code skill 使用
+## 自定义主题
 
-把仓库 clone 到 Claude Code 的 skills 目录，Claude 会自动发现：
+加新主题被刻意设计得**很快**：你只需要写一份 `DESIGN.md`，剩下的 `theme.typ` 让 AI Agent 帮你写。
 
-```bash
-git clone https://github.com/WeAIClub/md-to-pdf ~/.claude/skills/md-to-pdf
+### 第一步 —— 写 `DESIGN.md`
+
+新建 `themes/<你的主题>/DESIGN.md`。这是一份自由格式的 Markdown，描述视觉语言 —— 配色、字体栈、间距、各级标题、代码块、表格样式等等。你可以扒任何开源设计系统的 spec（Vercel、Notion、Linear、Mintlify……）粘进去，或者自己写。
+
+### 第二步 —— 让 Agent 生成 `theme.typ`
+
+在 Claude Code（或任意 coding agent）里打开仓库，对它说：
+
+> 先读 `themes/claude-white/DESIGN.md` 和 `themes/claude-white/theme.typ`，搞清楚一份 DESIGN.md 是怎么被翻译成 Typst 主题文件的。然后读 `themes/<你的主题>/DESIGN.md`，照同样的约定生成 `themes/<你的主题>/theme.typ`。
+
+[`SKILL.md`](./SKILL.md) 里列了 `theme.typ` 必须实现的 hook（`#set page`、`#show heading`、`#let horizontalrule` 等等），Agent 应该会自动读到。
+
+### 第三步 —— 用上新主题
+
+```
+/md-to-pdf input.md output.pdf <你的主题>
 ```
 
-然后对 Claude 说「把 handoff.md 转成 PDF」，它会自动调用这个 skill。
+或者自然语言：「把 `input.md` 转成 PDF，用 `<你的主题>` 主题」。
 
-## 配合其他 AI CLI 使用
-
-支持任何能读仓库 + 执行 shell 命令的 AI 代理 —— Gemini CLI、Codex CLI、Qoder、Cursor 都能用。看 [`AGENTS.md`](./AGENTS.md)，那是一份短的、面向 AI 代理的使用说明。
-
-## 加你自己的主题
-
-1. 新建 `themes/<你的主题>/theme.typ`
-2. 写齐必需的 `#set` 和 `#show` 规则（参考 `themes/terracotta-white/theme.typ`：需要 color tokens、页面设置、文本/段落默认、各级标题、strong/emph/link、行内/块级 raw、quote、table，以及一个 `#let horizontalrule = ...` 定义）
-3. 跑：`./scripts/md_to_pdf.sh input.md output.pdf <你的主题>`
-
-完整的 `theme.typ` hook 清单见 [`SKILL.md`](./SKILL.md)。
+做出来不错的主题欢迎提 PR。
 
 ## 架构
 
 ```
 md-to-pdf/
-├── SKILL.md                     # Claude Code skill 入口
-├── AGENTS.md                    # 其他 AI 代理用的说明
+├── SKILL.md                     # Skill 入口（frontmatter + 说明）
+├── AGENTS.md                    # 给非 Claude Agent 的说明
 ├── README.md / README.zh.md     # 给人看的文档
 ├── LICENSE                      # MIT（项目代码）
 ├── scripts/md_to_pdf.sh         # 主管道脚本
 ├── themes/                      # 每个主题一个目录
-│   ├── terracotta-white/
-│   └── terracotta-white-bold/
+│   ├── claude-white/
+│   │   ├── DESIGN.md            # 设计参考
+│   │   ├── theme.typ            # Typst 模板
+│   │   └── README.md            # 排版说明
+│   └── claude-white-bold/
 ├── fonts/                       # 打包字体 + OFL license
-└── examples/
-    ├── sample.md
-    └── sample.pdf
+└── examples/                    # sample.md + sample.pdf + 截图
 ```
 
 管道：
@@ -139,14 +146,10 @@ md-to-pdf/
 3. 把 `theme.typ + body.typ` 拼成单个 Typst 文件
 4. `typst compile --font-path fonts/`
 
-## 致谢
-
-- **字体** —— [LXGW Bright GB](https://github.com/lxgw/LxgwBright) 和 [LXGW Bright Code GB](https://github.com/lxgw/LxgwBright-Code)，作者陈亿堃（LXGW），采用 SIL Open Font License 1.1 授权。完整版权声明见 [`fonts/LICENSE-LXGW.txt`](./fonts/LICENSE-LXGW.txt)。
-- **设计参考** —— 每个主题目录下有 `DESIGN.md`，标注了调色板和字体设定的来源。
-- **底层管道** —— [pandoc](https://pandoc.org) 和 [typst](https://typst.app) 负责所有重活。
-
 ## 许可证
 
 项目代码和主题：[MIT](./LICENSE)。
 
-打包字体：[OFL 1.1](./fonts/LICENSE-LXGW.txt)。
+打包字体 —— [LXGW Bright GB](https://github.com/lxgw/LxgwBright) 和 [LXGW Bright Code GB](https://github.com/lxgw/LxgwBright-Code)，作者陈亿堃（LXGW），[SIL OFL 1.1](./fonts/LICENSE-LXGW.txt) 授权。
+
+`claude-white` 主题的配色和排版来自 Anthropic Claude 的设计语言，原始 spec 保存在 `themes/claude-white/DESIGN.md`。

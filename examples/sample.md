@@ -2,14 +2,14 @@
 
 > 好的排版不是让文字更漂亮，而是让读者忘记字体本身的存在，把注意力完全留给内容。
 
-This sample showcases how **md-to-pdf** typesets a Markdown source via the `pandoc → Typst` pipeline, under the terracotta-white theme.
+This sample showcases how **md-to-pdf** typesets a Markdown source via the `pandoc → Typst` pipeline, under the claude-white theme.
 
 ## 一、代码块
 
 pandoc → Typst 管道会把 fenced code block 转成带语法高亮的排版。主题给代码块配了象牙色底、暖灰色描边和圆角；关键字、字符串、数字、注释分别染色，字号和行距相对正文略小以突出其「引用」属性。
 
 ```python
-def render(path: str, theme: str = "terracotta-white") -> bytes:
+def render(path: str, theme: str = "claude-white") -> bytes:
     """Render a Markdown file into a PDF byte string."""
     with open(path, encoding="utf-8") as fh:
         return typeset(fh.read(), theme=theme, dpi=300)

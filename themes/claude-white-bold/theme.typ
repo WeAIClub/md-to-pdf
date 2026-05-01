@@ -1,5 +1,5 @@
-// terracotta-white-bold theme
-// Same as terracotta-white, but `**bold**` uses stroke-based synthetic bold
+// claude-white-bold theme
+// Same as claude-white, but `**bold**` uses stroke-based synthetic bold
 // for stronger emphasis on fonts without a native 700 weight.
 
 // ── Color tokens ──

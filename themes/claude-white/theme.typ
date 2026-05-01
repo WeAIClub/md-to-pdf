@@ -1,4 +1,4 @@
-// terracotta-white theme
+// claude-white theme
 // Warm white page, terracotta accents, serif typography. Standard bold emphasis.
 
 // ── Color tokens ──
